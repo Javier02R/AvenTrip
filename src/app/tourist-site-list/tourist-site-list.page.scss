@@ -1,0 +1,69 @@
+
+ion-title{
+    font-size: 20px;
+    color: #473807;
+    font-weight: bold;
+}
+
+.container {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center; /* Alinea las tarjetas en el centro horizontal */
+    align-items: center;
+    gap: 20px; /* Espacio entre las tarjetas */
+    width: 100%; /* El contenedor ocupa el 100% del ancho */
+  }
+  
+  .card {
+    background: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
+    backdrop-filter: blur(15px) saturate(150%); /* Desenfoque y saturación para efecto de vidrio */
+    -webkit-backdrop-filter: blur(15px) saturate(150%); /* Compatibilidad Safari */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    border-radius: 15px; /* Bordes redondeados */
+    width: 300px;
+    overflow: hidden;
+    color: #2E2D2A; /* Texto gris oscuro, tono tierra */
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Línea sutil para separar imagen y texto */
+  }
+  
+  .card h2 {
+    font-size: 1.6rem;
+    font-weight:bold;
+    margin: 15px 0;
+    color: #3d4d2b; /* Verde grisáceo para títulos */
+  }
+  
+  .card p {
+    font-size: 1rem;
+    padding: 0 15px;
+    margin-bottom: 20px;
+    color: #4E4743; /* Texto gris, un tono más oscuro */
+  }
+  
+  .card:hover {
+    transform: translateY(-8px);
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo más claro al hacer hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Más sombra en hover */
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+      align-items: center;
+    }
+  
+    .card {
+      width: 90%;
+    }
+  }
+  

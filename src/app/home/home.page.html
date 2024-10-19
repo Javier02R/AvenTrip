@@ -7,66 +7,9 @@
   <div class="overlay">
       <h1 style="font-size: 2rem; font-weight: bold;">Descubre lo auténtico</h1>
       <p>Explora destinos fuera de lo común, apoya a la economía local y viaja de manera consciente.</p>
-      <ion-button color="success" style="--border-radius: 20px; margin-top: 10px;">Comienza tu aventura</ion-button>
+      <ion-button color="success" style="--border-radius: 20px; margin-top: 10px;" [routerLink]="['/tourist-site-list']">
+        Comienza tu aventura
+    </ion-button>
   </div>
 </div>
-  <!-- Sección de Destinos Destacados -->
-  <div class="container">
-    <div class="card">
-      <img src="https://www.globalnationalparks.com/es/wp-content/uploads/general-division-omar-torrijos-herrera-parque-nacional.jpg" alt="Parque Omar Torrijos">
-      <h2>Parque Omar Torrijos</h2>
-      <p>Conéctate con la naturaleza en este hermoso destino rural.</p>
-    </div>
-
-    <div class="card">
-      <img src="https://myuniqueadventure.com/wp-content/uploads/2024/08/Sanagua-Lodge8.jpg" alt="Sanagua Lodge">
-      <h2>Sanagua Lodge</h2>
-      <p>Descubre la cultura y tradición en este pequeño pueblo.</p>
-    </div>
-
-    <div class="card">
-      <img src="https://www.heypanama.com/content/gallery2884/2020-08-12-13-433254460471597257833.jpg" alt="El Tife">
-      <h2>El Tife</h2>
-      <p>Relájate en playas vírgenes lejos de las multitudes.</p>
-    </div>
-  </div>
-  <!-- Sección de Experiencias Únicas -->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Vive experiencias auténticas</ion-card-title>
-    </ion-card-header>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="6">
-          <ion-card>
-            <img src="assets/img/experiencia1.jpg" alt="Experiencia 1">
-            <ion-card-content>
-              <h3>Tours Culturales</h3>
-              <p>Descubre la cultura local con guías especializados.</p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-        <ion-col size="6">
-          <ion-card>
-            <img src="assets/img/experiencia2.jpg" alt="Experiencia 2">
-            <ion-card-content>
-              <h3>Aventuras al Aire Libre</h3>
-              <p>Disfruta de deportes y caminatas en la naturaleza.</p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-
-  <!-- Sección de Ofertas y Promociones -->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Ofertas exclusivas para ti</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p>Explora ofertas y paquetes de viaje diseñados especialmente para ti.</p>
-      <ion-button expand="block" color="tertiary">Ver Ofertas</ion-button>
-    </ion-card-content>
-  </ion-card>
 </ion-content>
