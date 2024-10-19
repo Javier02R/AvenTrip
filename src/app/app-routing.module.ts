@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'tourist-site-list',
+    loadChildren: () => import('./tourist-site-list/tourist-site-list.module').then( m => m.TouristSiteListPageModule)
+  },
+  {
+    path: 'tourist-site-detail',
+    loadChildren: () => import('./tourist-site-detail/tourist-site-detail.module').then( m => m.TouristSiteDetailPageModule)
+  },
 ];
 
 @NgModule({
