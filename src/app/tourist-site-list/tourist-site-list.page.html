@@ -1,13 +1,29 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>tourist-site-list</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+ <!-- Sección de Destinos Destacados -->
+<ion-content>
+  <div class="container">
     <ion-toolbar>
-      <ion-title size="large">tourist-site-list</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button default-href="#"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Sitios destacados</ion-title>
     </ion-toolbar>
-  </ion-header>
+    <div class="card">
+      <img src="https://www.globalnationalparks.com/es/wp-content/uploads/general-division-omar-torrijos-herrera-parque-nacional.jpg" alt="Parque Omar Torrijos">
+      <h2>Parque Omar Torrijos</h2>
+      <p>Conéctate con la naturaleza en este hermoso destino rural.</p>
+    </div>
+  
+    <div class="card">
+      <img src="https://myuniqueadventure.com/wp-content/uploads/2024/08/Sanagua-Lodge8.jpg" alt="Sanagua Lodge">
+      <h2>Sanagua Lodge</h2>
+      <p>Descubre la cultura y tradición en este pequeño pueblo.</p>
+    </div>
+  
+    <div class="card">
+      <img src="https://www.heypanama.com/content/gallery2884/2020-08-12-13-433254460471597257833.jpg" alt="El Tife">
+      <h2>El Tife</h2>
+      <p>Relájate en playas vírgenes lejos de las multitudes.</p>
+    </div>
+  </div>
 </ion-content>
+ 
