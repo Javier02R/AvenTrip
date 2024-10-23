@@ -6,8 +6,9 @@
   align-items:start;*/
 }
 .contenedor-centrado {
+  font-weight: bold;
   display: flex;
-  margin-top: 50px;
+  margin-top: 30px;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -137,6 +138,18 @@ p {
   }
 }
 
+ion-toolbar {
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+}
+
+ion-button {
+  transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+}
+
+ion-button:active {
+  transform: scale(0.95);
+  background-color: var(--ion-color-primary-shade);
+}
 .footer{
   font-size: small;
   text-align: center;
