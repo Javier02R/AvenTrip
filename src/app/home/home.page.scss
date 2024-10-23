@@ -1,4 +1,19 @@
 
+.boton1 {
+  color: #ffffff;
+  /*display: flex;
+  justify-content: center;
+  align-items:start;*/
+}
+.contenedor-centrado {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+
 .image-container {
   position: flex;
   height: 100vh; /* Cambia esta altura según tus necesidades */
@@ -13,6 +28,18 @@ img {
 }
 
 .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  color: white;
+  text-align: center;
+}
+
+.content{
   position: absolute;
   top: 0;
   left: 0;
@@ -108,4 +135,10 @@ p {
   .card {
     width: 90%;
   }
+}
+
+.footer{
+  font-size: small;
+  text-align: center;
+  color: #000000;
 }

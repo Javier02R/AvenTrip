@@ -1,15 +1,32 @@
 <ion-content class="back">
-
-  <!-- Sección Principal de Bienvenida -->
-<!-- Imagen de fondo con superposición -->
-<div class="image-container">
-  <img src="https://www.journeyera.com/wp-content/uploads/2018/08/cerro-picacho-SAN-CARLOS-0496.jpg" alt="Cerro Picacho">
-  <div class="overlay">
-      <h1 style="font-size: 2rem; font-weight: bold;">Descubre lo auténtico</h1>
-      <p>Explora destinos fuera de lo común, apoya a la economía local y viaja de manera consciente.</p>
-      <ion-button color="success" style="--border-radius: 20px; margin-top: 10px;" [routerLink]="['/tourist-site-list']">
-        Comienza tu aventura
-    </ion-button>
+  <div class="image-container">
+    <img src="https://www.journeyera.com/wp-content/uploads/2018/08/cerro-picacho-SAN-CARLOS-0496.jpg" alt="Cerro Picacho">
+      <div class="overlay">
+        <ion-grid>
+          <ion-row class="contenedor-centrado">
+            <ion-button fill="clear" color="light" size="default">
+              <ion-icon name="menu"></ion-icon>
+            </ion-button>
+            <ion-button fill="clear" color="light" size="default">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </ion-button>
+            <ion-button fill="clear" color="light" size="default">
+              <ion-icon name="share-social-outline"></ion-icon>
+            </ion-button>
+          </ion-row>
+        </ion-grid>
+        <div class="content">
+          <h1 style="font-size: 2rem; font-weight: bold;">Rutas que Marcan</h1>
+          <p>Conoce destinos únicos y vive experiencias inolvidables.</p>
+          <ion-button color="success" style="--border-radius: 20px; margin-top: 10px;" [routerLink]="['/tourist-site-list']">
+            Explorar
+          </ion-button>
+        </div>
+      </div>
   </div>
-</div>
+  <ion-footer class="footer-transparente">
+    <ion-toolbar>
+      <p class="footer">Aventrip Todos los derechos reservados© 2024</p>
+    </ion-toolbar>
+  </ion-footer>
 </ion-content>
