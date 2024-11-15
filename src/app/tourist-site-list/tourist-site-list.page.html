@@ -1,62 +1,18 @@
- <!-- Sección de Destinos Destacados -->
+<!-- Sección de Destinos Destacados -->
 <ion-content>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sitios destacados</ion-title>
+  </ion-toolbar>
+  
   <div class="container">
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-back-button default-href="#"></ion-back-button>
-      </ion-buttons>
-      <ion-title>Sitios destacados</ion-title>
-    </ion-toolbar>
-    <div *ngIf="true" @fadeIn class="card">
-      <img src="https://www.globalnationalparks.com/es/wp-content/uploads/general-division-omar-torrijos-herrera-parque-nacional.jpg" alt="Parque Omar Torrijos">
-      <h2>Parque Omar Torrijos</h2>
-      <p>Disfruta de la belleza natural y la diversidad del Parque Omar Torrijos Herrera.</p>
-    </div>
-  
-    <div *ngIf="true" @fadeIn class="card">
-      <img src="https://myuniqueadventure.com/wp-content/uploads/2024/08/Sanagua-Lodge8.jpg" alt="Sanagua Lodge">
-      <h2>Sanagua Lodge</h2>
-      <p>Descubre la paz y el confort en Sanagua Lodge 🌄🏡 Rodeado de paisajes increíbles</p>
-    </div>
-  
-    <div *ngIf="true" @fadeIn class="card">
-      <img src="https://www.heypanama.com/content/gallery2884/2020-08-12-13-433254460471597257833.jpg" alt="El Tife">
-      <h2>El Tife</h2>
-      <p>Sumérgete en la tranquilidad de la naturaleza en el Chorro El Tife 🌿💧</p>
-    </div>
-    <div *ngIf="true" @fadeIn class="card">
-      <img src="https://myuniqueadventure.com/wp-content/uploads/2024/08/Sanagua-Lodge8.jpg" alt="Sanagua Lodge">
-      <h2>Sanagua Lodge</h2>
-      <p>Descubre la paz y el confort en Sanagua Lodge 🌄🏡 Rodeado de paisajes increíbles</p>
-    </div>
-  
-    <div *ngIf="true" @fadeIn class="card">
-      <img src="https://www.heypanama.com/content/gallery2884/2020-08-12-13-433254460471597257833.jpg" alt="El Tife">
-      <h2>El Tife</h2>
-      <p>Sumérgete en la tranquilidad de la naturaleza en el Chorro El Tife 🌿💧</p>
-    </div>
-    <div *ngIf="true" @fadeIn class="card">
-      <img src="https://myuniqueadventure.com/wp-content/uploads/2024/08/Sanagua-Lodge8.jpg" alt="Sanagua Lodge">
-      <h2>Sanagua Lodge</h2>
-      <p>Descubre la paz y el confort en Sanagua Lodge 🌄🏡 Rodeado de paisajes increíbles</p>
-    </div>
-  
-    <div *ngIf="true" @fadeIn class="card">
-      <img src="https://www.heypanama.com/content/gallery2884/2020-08-12-13-433254460471597257833.jpg" alt="El Tife">
-      <h2>El Tife</h2>
-      <p>Sumérgete en la tranquilidad de la naturaleza en el Chorro El Tife 🌿💧</p>
-    </div>
-    <div *ngIf="true" @fadeIn class="card">
-      <img src="https://myuniqueadventure.com/wp-content/uploads/2024/08/Sanagua-Lodge8.jpg" alt="Sanagua Lodge">
-      <h2>Sanagua Lodge</h2>
-      <p>Descubre la paz y el confort en Sanagua Lodge 🌄🏡 Rodeado de paisajes increíbles</p>
-    </div>
-  
-    <div *ngIf="true" @fadeIn class="card">
-      <img src="https://www.heypanama.com/content/gallery2884/2020-08-12-13-433254460471597257833.jpg" alt="El Tife">
-      <h2>El Tife</h2>
-      <p>Sumérgete en la tranquilidad de la naturaleza en el Chorro El Tife 🌿💧</p>
+    <div *ngFor="let sitio of sitios" @fadeIn class="card" (click)="verDetalles(sitio.id)">
+      <img [src]="sitio.imagen" [alt]="sitio.nombre">
+      <h2>{{ sitio.titulo }}</h2>
+      <p>{{ sitio.descripcion }}</p>
     </div>
   </div>
+  <ion-button (click)="agregarSitio()">Agregar Sitio</ion-button>
 </ion-content>
- 
