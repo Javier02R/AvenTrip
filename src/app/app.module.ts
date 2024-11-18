@@ -15,6 +15,7 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 
 import { AddSiteModalModule } from './add-site-modal/add-site-modal.module'; 
+import { CategorySelectorModule } from './category-selector/category-selector.module';
 
 // Configuración de Firebase separada
 const firebaseProviders = [
@@ -30,6 +31,7 @@ const firebaseProviders = [
     IonicModule.forRoot(),
     AppRoutingModule,
     AddSiteModalModule,
+    CategorySelectorModule,
     BrowserAnimationsModule,
   ],
   providers: [

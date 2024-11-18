@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Seleccionar Categoría</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-radio-group [(ngModel)]="categoriaSeleccionada">
+      <ion-item>
+        <ion-label>Todos</ion-label>
+        <ion-radio slot="start" value="todos"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Parques</ion-label>
+        <ion-radio slot="start" value="parques"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Rios</ion-label>
+        <ion-radio slot="start" value="rios"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Playas</ion-label>
+        <ion-radio slot="start" value="playas"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Hostal</ion-label>
+        <ion-radio slot="start" value="hostal"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+  <ion-button expand="block" (click)="aplicarFiltro()">Aplicar</ion-button>
+</ion-content>

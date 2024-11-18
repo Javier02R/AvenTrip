@@ -1,4 +1,3 @@
-<!-- Sección de Destinos Destacados -->
 <ion-content>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -8,7 +7,7 @@
   </ion-toolbar>
   
   <div class="container">
-    <div *ngFor="let sitio of sitios" @fadeIn class="card" (click)="verDetalles(sitio.id)">
+    <div *ngFor="let sitio of sitiosFiltrados" @fadeIn class="card" (click)="verDetalles(sitio.id)">
       <img [src]="sitio.imagen" [alt]="sitio.nombre">
       <h2>{{ sitio.titulo }}</h2>
       <p>{{ sitio.descripcion }}</p>

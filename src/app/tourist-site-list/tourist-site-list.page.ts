@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations'; 
 import { FirebaseService } from '../services/firebase.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AddSiteModalComponent } from '../add-site-modal/add-site-modal.component';
 import { ModalController } from '@ionic/angular';
 
@@ -20,43 +20,46 @@ import { ModalController } from '@ionic/angular';
 })
 export class TouristSiteListPage implements OnInit {
 
-  sitios: any[] = [];  // Declaramos la variable sitios
+  sitios: any[] = []; // Todos los sitios
+  sitiosFiltrados: any[] = []; // Sitios después de filtrar
+  categoriaSeleccionada: string = 'todos';
 
   constructor(
     private firebaseService: FirebaseService,
+    private activatedRoute: ActivatedRoute,
     private router: Router,
     private modalController: ModalController
   ) {}
 
   ngOnInit() {
+    // Cargar sitios desde Firebase
     this.firebaseService.getSitios().subscribe((sitios: any[]) => {
       this.sitios = sitios;
+      this.aplicarFiltro();
+    });
+
+    // Escuchar los parámetros de consulta
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.categoriaSeleccionada = params['categoria'] || 'todos';
+      this.aplicarFiltro();
     });
   }
 
-  /*/agregarSitio() {
-    // Define los datos del sitio a agregar
-    const nuevoSitio = {
-      titulo: 'Nuevo Sitio',
-      descripcion: 'Descripción del nuevo sitio',
-      imagen: 'https://example.com/imagen.jpg',
-      direccion: 'Dirección del sitio',
-      categoria: 'Categoría',
-      calificacion: 5  // Asegúrate de tener esta propiedad
-    };
+  aplicarFiltro() {
+    if (this.categoriaSeleccionada === 'todos') {
+      this.sitiosFiltrados = this.sitios; // Mostrar todos los sitios
+    } else {
+      this.sitiosFiltrados = this.sitios.filter(sitio =>
+        sitio.categoria.toLowerCase() === this.categoriaSeleccionada.toLowerCase()
+      );
+    }
+  }
 
-    this.firebaseService.addSitio(nuevoSitio).then(() => {
-      console.log("Nuevo sitio agregado correctamente");
-    }).catch(error => {
-      console.error("Error al agregar el sitio: ", error);
-    });
-  }/*/
   verDetalles(id: string) {
     this.router.navigate(['/detalle', id]);
     console.log("Ver detalles del sitio con ID:", id);
   }
 
-  // Mostrar el modal para agregar un nuevo sitio
   async agregarSitio() {
     const modal = await this.modalController.create({
       component: AddSiteModalComponent

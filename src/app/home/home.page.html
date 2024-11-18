@@ -14,13 +14,13 @@
               <ion-icon name="share-social-outline"></ion-icon>
             </ion-button>
           </ion-row>
-          <ion-searchbar disabled="true" placeholder="Disabled"></ion-searchbar>
+          <ion-searchbar placeholder="Buscar rutas..."></ion-searchbar>
         </ion-grid>
         <div class="content">
           <h1 style="font-size: 2rem; font-weight: bold;">Rutas que Marcan</h1>
           <p>Conoce destinos únicos y vive experiencias inolvidables.</p>
           <br><br><br>
-          <ion-button @slideIn color="success" style="--border-radius: 20px; margin-top: 10px; width: 150px;" [routerLink]="['/tourist-site-list']">
+          <ion-button @slideIn color="success" style="--border-radius: 20px; margin-top: 10px; width: 150px;" (click)="mostrarSelectorCategorias()">
             Explorar     
             <ion-icon name="walk-outline"></ion-icon>
           </ion-button>
