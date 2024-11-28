@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agregar Sitio</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrar()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="guardarSitio()">
+    <ion-item>
+      <ion-label position="floating">Título</ion-label>
+      <ion-input [(ngModel)]="sitio.titulo" name="titulo" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-input [(ngModel)]="sitio.descripcion" name="descripcion" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Imagen</ion-label>
+      <ion-input [(ngModel)]="sitio.imagen" name="imagen" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Dirección</ion-label>
+      <ion-input [(ngModel)]="sitio.direccion" name="direccion" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Categoría</ion-label>
+      <ion-input [(ngModel)]="sitio.categoria" name="categoria" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Calificación</ion-label>
+      <ion-input [(ngModel)]="sitio.calificacion" name="calificacion" type="number" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Destacado</ion-label>
+      <ion-toggle [(ngModel)]="sitio.destacado" name="destacado"></ion-toggle>
+    </ion-item>
+
+    <ion-button expand="full" type="submit">Guardar</ion-button>
+  </form>
+</ion-content>

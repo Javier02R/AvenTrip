@@ -1,13 +1,17 @@
-<ion-header [translucent]="true">
+<ion-content>
   <ion-toolbar>
-    <ion-title>tourist-site-list</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sitios destacados</ion-title>
   </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">tourist-site-list</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  
+  <div class="container">
+    <div *ngFor="let sitio of sitiosFiltrados" @fadeIn class="card" (click)="verDetalles(sitio.id)">
+      <img [src]="sitio.imagen" [alt]="sitio.nombre">
+      <h2>{{ sitio.titulo }}</h2>
+      <p>{{ sitio.descripcion }}</p>
+    </div>
+  </div>
+  <ion-button (click)="agregarSitio()">Agregar Sitio</ion-button>
 </ion-content>
