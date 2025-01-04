@@ -4,7 +4,7 @@ import { AddSiteModalComponent } from '../add-site-modal/add-site-modal.componen
 import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router'; 
 import { ModalController } from '@ionic/angular';
-import { CategorySelectorComponent } from '../category-selector/category-selector.component'; // Ajusta la ruta según sea necesario
+ import { CategorySelectorComponent } from '../category-selector/category-selector.component'; // Ajusta la ruta según sea necesario
 
 @Component({
   selector: 'app-home',
@@ -40,9 +40,8 @@ export class HomePage implements OnInit{
     });
 
     modal.onDidDismiss().then((data) => {
-      const categoriaSeleccionada = data.data; // La categoría seleccionada
+      const categoriaSeleccionada = data.data; 
       if (categoriaSeleccionada) {
-        // Redirige a la página con la categoría como parámetro
         this.irATouristSiteList(categoriaSeleccionada);
       }
     });
@@ -51,7 +50,6 @@ export class HomePage implements OnInit{
   }
 
   irATouristSiteList(categoria: string) {
-    // Aquí puedes usar routerLink con parámetros o directamente el router
     console.log(`Filtrando por: ${categoria}`);
   }
 

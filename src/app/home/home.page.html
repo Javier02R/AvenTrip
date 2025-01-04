@@ -17,7 +17,7 @@
           <ion-searchbar placeholder="Buscar rutas..."></ion-searchbar>
         </ion-grid>
         <div class="content">
-          <h1 style="font-size: 2rem; font-weight: bold;">Rutas que Marcan</h1>
+          <h1 style="font-size: 2rem; font-weight: bold; margin-top: 200px;">Rutas que Marcan</h1>
           <p>Conoce destinos únicos y vive experiencias inolvidables.</p>
           <br><br><br>
           <ion-button @slideIn color="success" style="--border-radius: 20px; margin-top: 10px; width: 150px;" (click)="mostrarSelectorCategorias()">
@@ -28,9 +28,19 @@
             Añadir
             <ion-icon name="add-outline"></ion-icon>
           </ion-button>
+          <div class="contenedor">
+            <div class="slider">
+              <div class="card" *ngFor="let sitio of sitios">
+                <img [src]="sitio.imagen" [alt]="sitio.titulo" />
+                <h2>{{ sitio.titulo }}</h2>
+                <p>{{ sitio.descripcion }}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-  </div>
+</div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+  
   <ion-footer class="footer-transparente">
     <ion-toolbar>
       <p class="footer">Aventrip Todos los derechos reservados© 2024</p>
