@@ -1,14 +1,80 @@
-.ion-padding {
+
+.boton1 {
+  color: #ffffff;
+  /*display: flex;
+  justify-content: center;
+  align-items:start;*/
+}
+.contenedor-centrado {
+  font-weight: bold;
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+
+.image-container {
+  position: flex;
+  height: 140vh; /* Cambia esta altura según tus necesidades */
+  overflow: hidden; /* Oculta el desbordamiento */
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+  display:flex; /* Elimina el espacio en línea */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:140%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  color: white;
+  text-align: center;
+}
+
+.content{
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+/* Estilos para el texto */
+h1, p {
+  color: white;
+  text-align: center;
+}
+p {
+  max-width: 90%;
+}
+
+
+
+.back {
   font-family: Arial, sans-serif;
   background: url('https://www.globalnationalparks.com/es/wp-content/uploads/general-division-omar-torrijos-herrera-parque-nacional.jpg') no-repeat center center fixed;
   background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
-  margin: 0;
-  padding: 0;
   display: flex;
   justify-content: center; /* Centra el contenido horizontalmente */
   align-items: center; /* Centra el contenido verticalmente */
-  min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la pantalla */
-  width: 100vw; /* Asegura que ocupe todo el ancho de la pantalla */
+  height: 100vh; /* Ocupa toda la altura del viewport */
+  width: 100vw; /* Ocupa todo el ancho del viewport */
 }
 
 .container {
@@ -70,4 +136,121 @@
   .card {
     width: 90%;
   }
+}
+
+ion-toolbar {
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+}
+
+ion-button {
+  transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+}
+
+ion-button:active {
+  transform: scale(0.95);
+  background-color: var(--ion-color-primary-shade);
+}
+/* Contenedor principal */
+.contenedor {
+  display: flex;
+  position:relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+}
+
+/* Slider que contiene las cards */
+.slider {
+  display: flex;
+  gap: 16px; /* Espacio entre las cards */
+  transition: transform 0.5s ease-in-out;
+  overflow-x: auto; /* Permitir desplazamiento horizontal */
+  scroll-behavior: smooth; /* Scroll suave */
+  padding: 10px;
+}
+
+/* Estilo de las cards */
+.card {
+  flex: 0 0 auto; /* Mantener las cards del mismo tamaño */
+  width: 300px; /* Ancho fijo para cada card */
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  text-align: center;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Efecto de flotación al pasar el mouse */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.39);
+}
+
+/* Imagen en la card */
+.card img {
+  width: 100%;
+  height: 150px; /* Altura fija */
+  object-fit: cover; /* Ajustar la imagen sin deformarla */
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Título */
+.card h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #000000;
+}
+
+/* Descripción */
+.card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Botones de navegación */
+.contenedor .prev,
+.contenedor .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+
+.contenedor .prev:hover,
+.contenedor .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Botón izquierdo */
+.contenedor .prev {
+  left: 10px;
+}
+
+/* Botón derecho */
+.contenedor .next {
+  right: 10px;
+}
+
+
+.footer{
+  font-size: small;
+  text-align: center;
+  color: #000000;
 }

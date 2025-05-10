@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'tourist-site-detail',
     loadChildren: () => import('./tourist-site-detail/tourist-site-detail.module').then( m => m.TouristSiteDetailPageModule)
   },
+  {
+    path: 'search',
+    loadChildren: () => import('./pages/search/search.module').then( m => m.SearchPageModule)
+  },
 ];
 
 @NgModule({
