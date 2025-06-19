@@ -16,6 +16,7 @@ import { environment } from '../environments/environment';
 
 import { AddSiteModalModule } from './add-site-modal/add-site-modal.module'; 
 import { CategorySelectorModule } from './category-selector/category-selector.module';
+import { ModalMapaComponent } from './modal-mapa/modal-mapa.component';
 
 // Configuración de Firebase separada
 const firebaseProviders = [
@@ -25,7 +26,7 @@ const firebaseProviders = [
 ];
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ModalMapaComponent,],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

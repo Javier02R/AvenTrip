@@ -1,3 +1,13 @@
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+
+
 <ion-content class="back">
   <div class="image-container">
     <img src="https://www.journeyera.com/wp-content/uploads/2018/08/cerro-picacho-SAN-CARLOS-0496.jpg" alt="Cerro Picacho">
@@ -7,7 +17,7 @@
             <ion-button fill="clear" color="light" size="default">
               <ion-icon name="menu"></ion-icon>
             </ion-button>
-            <ion-button fill="clear" color="light" size="default">
+            <ion-button fill="clear" color="light" size="default"> 
               <ion-icon name="logo-instagram"></ion-icon>
             </ion-button>
             <ion-button fill="clear" color="light" size="default">
@@ -28,18 +38,37 @@
             Añadir
             <ion-icon name="add-outline"></ion-icon>
           </ion-button>
+          <br>
+          <div class="tips-container">
+            <div class="tip-card" *ngFor="let tip of tips">
+              <div class="tip-header">
+                <ion-icon [name]="tip.icono"></ion-icon>
+                <h6 style="font-weight: bold;">{{ tip.titulo }}</h6>
+              </div>
+              <p>{{ tip.descripcion }}</p>
+            </div>
+          </div>
+          <br>
+          <h1 style="font-size: 2rem; font-weight: bold">Sitios destacados</h1>
           <div class="contenedor">
             <div class="slider">
               <div class="card" *ngFor="let sitio of sitios">
                 <img [src]="sitio.imagen" [alt]="sitio.titulo" />
                 <h2>{{ sitio.titulo }}</h2>
-                <p>{{ sitio.descripcion }}</p>
+                <div class="buttons1">
+                  <ion-button fill="clear" class="ver-mas" style="margin-bottom: 10px; color: black;" ><ion-icon name="add-sharp"></ion-icon></ion-button>
+                  <ion-button fill="clear" class="ver-mas" style="margin-bottom: 10px; color: black;" ><ion-icon name="heart-outline"></ion-icon></ion-button>
+                  <ion-button fill="clear" color="dark" (click)="abrirModal(sitio.id)">
+                    <ion-icon name="navigate"></ion-icon>
+                  </ion-button>
+                  <ion-button fill="clear" class="ver-mas" style="margin-bottom: 10px; color: black;" ><ion-icon name="share-social-outline"></ion-icon></ion-button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-</div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+</div> 
   
   <ion-footer class="footer-transparente">
     <ion-toolbar>

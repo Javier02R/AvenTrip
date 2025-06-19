@@ -17,7 +17,9 @@ export class AddSiteModalComponent {
     direccion: '',
     categoria: '',
     calificacion: 0,
-    destacado: false // Si quieres que tenga la opción de destacado
+    destacado: false, // Si quieres que tenga la opción de destacado
+    lat: 0,
+    lng: 0
   };
 
   constructor(

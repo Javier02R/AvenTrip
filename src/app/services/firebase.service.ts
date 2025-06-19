@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collectionData, addDoc, collection } from '@angular/fire/firestore';
+import { Firestore, collectionData, addDoc, collection, doc, docData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -11,6 +11,8 @@ interface Sitio {
   categoria: string;
   calificacion: number;
   direccion: string;
+  lat: number;
+  lng: number;
 
 }
 
@@ -27,6 +29,11 @@ export class FirebaseService {
   getSitios(): Observable<Sitio[]> {
     return collectionData(this.sitiosCollection, {idField: 'id'}) as Observable<Sitio[]>;
 
+  }
+
+  getSitioById(id: string): Observable<Sitio> {
+    const sitioDoc = doc(this.firestore, `sitios/${id}`);
+    return docData(sitioDoc) as Observable<Sitio>;
   }
 
   addSitio(sitio:Sitio) {

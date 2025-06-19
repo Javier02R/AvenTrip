@@ -23,6 +23,8 @@ export class AppComponent implements OnInit {
       imagen: "URL de la Imagen",
       direccion: "Dirección del Sitio",
       categoria: "Categoría del Sitio",
+      lat: 0,
+      lng: 0,
       calificacion: 0 // Agrega un valor para calificación
     };
 
