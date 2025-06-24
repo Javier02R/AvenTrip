@@ -1,4 +1,4 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnDestroy, OnInit  } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations'; // Importa las herramientas de animación
 import { AddSiteModalComponent } from '../add-site-modal/add-site-modal.component';
 import { FirebaseService } from '../services/firebase.service';
@@ -11,6 +11,7 @@ import * as L from 'leaflet';
 import 'leaflet-routing-machine';
 const Routing = (L as any).Routing;
 import { firstValueFrom } from 'rxjs';
+import Swiper from 'swiper';
 
 
 
@@ -30,9 +31,34 @@ import { firstValueFrom } from 'rxjs';
 })
 
 
-export class HomePage implements OnInit{
+export class HomePage implements OnInit,  AfterViewInit, OnDestroy{
   sitios: any[] = []; 
   mapa: any;
+  tips = [
+    {
+      titulo: 'Explora antes',
+      descripcion: 'Revisa el terreno antes de acampar.',
+      icono: 'eye-outline'
+    },
+    {
+      titulo: 'Lleva suficiente agua',
+      descripcion: 'Mantente hidratado durante toda la ruta.',
+      icono: 'water-outline'
+    },
+    {
+      titulo: 'Respeta la naturaleza',
+      descripcion: 'No dejes basura ni dañes el entorno.',
+      icono: 'leaf-outline'
+    }
+  ];
+
+  currentTipIndex = 0;
+  currentTip = this.tips[0];
+  intervalId: any;
+
+  ngOnDestroy() {
+    clearInterval(this.intervalId);
+  }
 
   constructor(
     private firebaseService: FirebaseService,
@@ -45,6 +71,10 @@ export class HomePage implements OnInit{
       //this.sitios = sitios;
       this.sitios = sitios.filter(sitio => sitio.destacado === true);
     });
+    this.intervalId = setInterval(() => {
+      this.currentTipIndex = (this.currentTipIndex + 1) % this.tips.length;
+      this.currentTip = this.tips[this.currentTipIndex];
+    }, 2000);
   }
 
   async mostrarSelectorCategorias() {
@@ -93,36 +123,15 @@ export class HomePage implements OnInit{
   }
     }
 
-    slideOpts = {
-  initialSlide: 0,
-  speed: 400,
-  slidesPerView: 1.2,
-  spaceBetween: 10
-};
-
-tips = [
-  {
-    icono: 'trail-sign-outline',
-    titulo: 'Lleva solo lo esencial',
-    descripcion: 'Empaca lo justo y necesario. Menos peso, más libertad.'
-  },
-  {
-    icono: 'water-outline',
-    titulo: 'Siempre hidrátate',
-    descripcion: 'Lleva agua suficiente y bebe regularmente durante el viaje.'
-  },
-  {
-    icono: 'leaf-outline',
-    titulo: 'Cuida el entorno',
-    descripcion: 'No dejes basura. Respeta la naturaleza y a los demás.'
-  },
-  {
-    icono: 'map-outline',
-    titulo: 'Investiga antes de ir',
-    descripcion: 'Conoce el clima, rutas y peligros del sitio que visitarás.'
+ngAfterViewInit() {
+    new Swiper('.mySwiper', {
+      autoplay: {
+        delay: 8000,
+        disableOnInteraction: false
+      },
+      loop: true
+    });
   }
-];
-
 
 }
                                                                                                

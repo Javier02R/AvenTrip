@@ -230,34 +230,56 @@ ion-button:active {
 
 .tips-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   overflow-x: auto;
-  padding: 5px;
-  gap: 12px;
-  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .tip-card {
-  width: 250px;
-  background: rgba(255, 255, 255, 0.1); // fondo transparente
-  backdrop-filter: blur(8px);
+  min-width: 250px;
+  max-width: 280px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.116), rgba(255, 255, 255, 0.116));
+  color: rgb(0, 0, 0);
   border-radius: 16px;
-  padding: 16px;
-  color: white;
-  scroll-snap-align: start;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  flex-shrink: 0;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(2px);
 }
 
-.tip-card p {
-  text-align: center;
-  margin: 10px 10px;
-  font-size: 14px;
-  line-height: 1.4;
+.tip-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.tip-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .tip-header ion-icon {
-  font-size: 24px;
-  color: white;
+  font-size: 1.2rem;
+  color: #00ff7f;
+  font-weight: bold;
+}
+
+.tip-header h6 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.tip-card p {
+  margin: 20px;
+  font-size: 0.95rem;
+  color: #ffffff;
+  line-height: 1.3;
 }
 
 
