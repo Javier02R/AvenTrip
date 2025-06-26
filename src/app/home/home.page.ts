@@ -74,7 +74,7 @@ export class HomePage implements OnInit,  AfterViewInit, OnDestroy{
     this.intervalId = setInterval(() => {
       this.currentTipIndex = (this.currentTipIndex + 1) % this.tips.length;
       this.currentTip = this.tips[this.currentTipIndex];
-    }, 2000);
+    }, 5000);
   }
 
   async mostrarSelectorCategorias() {
