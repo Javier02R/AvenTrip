@@ -36,6 +36,11 @@ export class FirebaseService {
     return docData(sitioDoc) as Observable<Sitio>;
   }
 
+  getTodasLasRutas(): Observable<Sitio[]> {
+  const rutasRef = collection(this.firestore, 'sitios');
+  return collectionData(rutasRef, { idField: 'id' }) as Observable<Sitio[]>;
+}
+
   addSitio(sitio:Sitio) {
     return addDoc(this.sitiosCollection, sitio).catch((error) => {
       console.error('Error al agregar el sitio:', error);

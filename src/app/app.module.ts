@@ -17,7 +17,7 @@ import { environment } from '../environments/environment';
 import { AddSiteModalModule } from './add-site-modal/add-site-modal.module'; 
 import { CategorySelectorModule } from './category-selector/category-selector.module';
 import { ModalMapaComponent } from './modal-mapa/modal-mapa.component';
-
+import { FormsModule } from '@angular/forms';
 // Configuración de Firebase separada
 const firebaseProviders = [
   provideFirebaseApp(() => initializeApp(environment.firebase)),
@@ -34,6 +34,7 @@ const firebaseProviders = [
     AddSiteModalModule,
     CategorySelectorModule,
     BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [
     ...firebaseProviders, // Incluye los proveedores de Firebase aquí

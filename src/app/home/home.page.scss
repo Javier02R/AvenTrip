@@ -1,3 +1,4 @@
+
 .boton1 {
   color: #ffffff;
   /*display: flex;
@@ -15,36 +16,68 @@
 
 
 .image-container {
-  position: flex;
-  height: 200vh; /* Cambia esta altura según tus necesidades */
-  overflow: hidden; /* Oculta el desbordamiento */
+  position: relative; /* Corrige el error */
+  height: auto; /* Permite que crezca según contenido */
+  overflow: hidden;
 }
 
 img {
   width: 100%;
   height: 100%;
   object-fit:cover;
-  display:flex; /* Elimina el espacio en línea */
+  display:flex; 
+}
+
+.back {
+  --background: none; /* Elimina fondo por defecto de Ionic */
+  position: relative;
 }
 
 .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+  background-image: url('/assets/icon/background.png'); /* o una URL externa */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
   width: 100%;
-  height:200%;
-  background-color: rgba(0, 0, 0, 0.4);
-  display: flex;
-  color: white;
-  text-align: center;
 }
 
+.overlay::before {
+  position:fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.281); /* Capa negra translúcida */
+  z-index: 0;
+}
+
+ion-row[justify-content-center] {
+  justify-content: center;
+}
+
+ion-row[align-items-center] {
+  align-items: center;
+}
+
+ion-button {
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+ion-searchbar {
+  --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+
 .content{
-  position:absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
-  height: 80%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
@@ -63,18 +96,6 @@ p {
   max-width: 90%;
 }
 
-
-
-.back {
-  font-family: Arial, sans-serif;
-  background: url('https://www.globalnationalparks.com/es/wp-content/uploads/general-division-omar-torrijos-herrera-parque-nacional.jpg') no-repeat center center fixed;
-  background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
-  display: flex;
-  justify-content: center; /* Centra el contenido horizontalmente */
-  align-items: center; /* Centra el contenido verticalmente */
-  height: 100vh; /* Ocupa toda la altura del viewport */
-  width: 100vw; /* Ocupa todo el ancho del viewport */
-}
 
 .container {
   display: flex;
@@ -282,6 +303,15 @@ ion-button:active {
   line-height: 1.3;
 }
 
+.search-results {
+  padding: 0 16px;
+  margin-top: 10px;
+}
+
+.sitio-card {
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
 
 @import "~leaflet/dist/leaflet.css";

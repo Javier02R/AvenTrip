@@ -34,6 +34,9 @@ import Swiper from 'swiper';
 export class HomePage implements OnInit,  AfterViewInit, OnDestroy{
   sitios: any[] = []; 
   mapa: any;
+  searchTerm: string = '';
+  rutas: any[] = [];        // ← almacena todas las rutas desde Firebase
+  resultados: any[] = []
   tips = [
     {
       titulo: 'Explora antes',
@@ -131,6 +134,18 @@ ngAfterViewInit() {
       },
       loop: true
     });
+  }
+buscarRutas() {
+    const termino = this.searchTerm.trim().toLowerCase();
+
+    if (termino === '') {
+      this.resultados = [];
+      return;
+    }
+
+    this.resultados = this.sitios.filter((sitio) =>
+      sitio.titulo.toLowerCase().includes(termino)
+    );
   }
 
 }
