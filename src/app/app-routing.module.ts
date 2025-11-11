@@ -22,7 +22,11 @@ const routes: Routes = [
   {
     path: 'search',
     loadChildren: () => import('./pages/search/search.module').then( m => m.SearchPageModule)
+  },  {
+    path: 'pendientes',
+    loadChildren: () => import('./pendientes/pendientes.module').then( m => m.PendientesPageModule)
   },
+
 ];
 
 @NgModule({

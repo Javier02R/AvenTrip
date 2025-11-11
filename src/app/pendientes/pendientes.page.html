@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Sitios Pendientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="pendientes.length > 0; else sinPendientes">
+    <ion-item *ngFor="let sitio of pendientes">
+      <ion-label>
+        <h2>{{ sitio.nombre || 'Sin nombre' }}</h2>
+        <p>{{ sitio.descripcion || 'Sin descripción' }}</p>
+      </ion-label>
+      <ion-button color="success" (click)="aprobarSitio(sitio)">Aprobar</ion-button>
+      <ion-button color="danger" (click)="eliminarSitio(sitio)">Eliminar</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #sinPendientes>
+    <ion-text color="medium" class="ion-padding">
+      <p>No hay sitios pendientes por aprobar.</p>
+    </ion-text>
+  </ng-template>
+</ion-content>
