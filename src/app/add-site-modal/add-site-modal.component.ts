@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
 import { FirebaseService } from '../services/firebase.service';
-
 
 @Component({
   selector: 'app-add-site-modal',
@@ -24,6 +23,7 @@ export class AddSiteModalComponent {
 
   constructor(
     private modalCtrl: ModalController,
+    private toastController: ToastController,
     private firebaseService: FirebaseService
   ) {}
 
@@ -34,9 +34,23 @@ export class AddSiteModalComponent {
 
   // Guardar el nuevo sitio
   guardarSitio() {
-    this.firebaseService.addSitio(this.sitio).then(() => {
-      this.modalCtrl.dismiss(); // Cierra el modal después de agregar el sitio
+    this.firebaseService.addSitioPendiente(this.sitio).then(() => {
+      this.mostrarToast('Sitio agregado a pendientes');
+      this.modalCtrl.dismiss();
+    }).catch((error) => {
+      console.error('Error al agregar el sitio:', error);
+      this.mostrarToast('Error al agregar el sitio');
     });
   }
+
+  async mostrarToast(mensaje: string) {
+  const toast = await this.toastController.create({
+    message: mensaje,
+    duration: 2500,
+    color: 'success',
+    position: 'bottom'
+  });
+  toast.present();
+}
 }
 

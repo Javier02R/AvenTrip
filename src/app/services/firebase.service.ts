@@ -21,9 +21,11 @@ interface Sitio {
 })
 export class FirebaseService {
   private sitiosCollection;
+  private pendientesCollection;
 
   constructor(private firestore: Firestore) {
-    this.sitiosCollection = collection(this.firestore, 'sitios')
+    this.sitiosCollection = collection(this.firestore, 'sitios');
+    this.pendientesCollection = collection(this.firestore, 'sitios_pendientes');
   }
 
   getSitios(): Observable<Sitio[]> {
@@ -41,11 +43,20 @@ export class FirebaseService {
   return collectionData(rutasRef, { idField: 'id' }) as Observable<Sitio[]>;
 }
 
-  addSitio(sitio:Sitio) {
-    return addDoc(this.sitiosCollection, sitio).catch((error) => {
-      console.error('Error al agregar el sitio:', error);
-      throw error;
-    });
-  }
+addSitioPendiente(sitio: Sitio) {
+  return addDoc(this.pendientesCollection, {
+    sitio,
+    fecha: new Date()
+  }).catch((error) => {
+    console.error('Error al agregar el sitio pendiente:', error);
+    throw error;
+  });
+}
+/*addSitio(sitio:Sitio) {
+  return addDoc(this.sitiosCollection, sitio).catch((error) => {
+    console.error('Error al agregar el sitio:', error);
+    throw error;
+  });
+}*/
 
 }
