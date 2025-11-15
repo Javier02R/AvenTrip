@@ -21,17 +21,13 @@ export class PendientesPage implements OnInit {
 
   cargarPendientes() {
     this.firebaseService.getSitiosPendientes().subscribe((data: any[]) => {
-      this.pendientes = data.map((e: any) => {
-        return {
-          id: e.payload.doc.id,
-          ...e.payload.doc.data()
-        };
-      });
+      this.pendientes = data;
     });
   }
+
   
   async aprobarSitio(pendiente: any) {
-    await this.firebaseService.aprobarSitio(pendiente.sitio);
+    await this.firebaseService.aprobarSitio(pendiente);
     await this.firebaseService.eliminarPendiente(pendiente.id);
     this.mostrarToast('✅ Sitio aprobado y publicado');
   }

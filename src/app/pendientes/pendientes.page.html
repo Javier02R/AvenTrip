@@ -6,14 +6,24 @@
 
 <ion-content>
   <ion-list *ngIf="pendientes.length > 0; else sinPendientes">
-    <ion-item *ngFor="let sitio of pendientes">
+
+    <ion-item *ngFor="let s of pendientes">
+      <ion-thumbnail slot="start">
+        <img [src]="s.sitio.imagenUrl || 'assets/noimage.png'">
+      </ion-thumbnail>
+
       <ion-label>
-        <h2>{{ sitio.nombre || 'Sin nombre' }}</h2>
-        <p>{{ sitio.descripcion || 'Sin descripción' }}</p>
+        <h2>{{ s.sitio.titulo }}</h2>
+        <p>{{ s.sitio.descripcion }}</p>
+        <p><strong>Dirección:</strong> {{ s.sitio.direccion }}</p>
+        <p><strong>Categoría:</strong> {{ s.sitio.categoria }}</p>
+        <p><strong>Calificación:</strong> {{ s.sitio.calificacion }}</p>
       </ion-label>
-      <ion-button color="success" (click)="aprobarSitio(sitio)">Aprobar</ion-button>
-      <ion-button color="danger" (click)="eliminarSitio(sitio)">Eliminar</ion-button>
+
+      <ion-button color="success" (click)="aprobarSitio(s)">Aprobar</ion-button>
+      <ion-button color="danger" (click)="eliminarSitio(s)">Eliminar</ion-button>
     </ion-item>
+
   </ion-list>
 
   <ng-template #sinPendientes>

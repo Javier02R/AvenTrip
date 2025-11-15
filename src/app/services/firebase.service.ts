@@ -64,15 +64,16 @@ getSitiosPendientes() {
   return collectionData(this.pendientesCollection, { idField: 'id' });
 }
 
-async aprobarSitio(sitio: any) {
+async aprobarSitio(pendiente: any) {
   try {
+    const sitio = pendiente.sitio;
     await addDoc(this.sitiosCollection, sitio);
-    await this.eliminarPendiente(sitio.id);
     console.log('Sitio aprobado y publicado');
   } catch (error) {
     console.error('Error al aprobar sitio:', error);
   }
 }
+
 
 async eliminarPendiente(id: string) {
   const docRef = doc(this.firestore, 'sitios_pendientes', id);
